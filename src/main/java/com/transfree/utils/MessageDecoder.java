@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class MessageDecoder {
 
-    private static final Logger logger = LogManager.getLogger("Socket");
+    private static final Logger logger = LogManager.getLogger("DECODER");
 
     byte[] rawMessage;
     MessageType.MESSAGE type;
@@ -19,19 +19,24 @@ public class MessageDecoder {
     boolean haveData = false;
     boolean haveHeaders = false;
     HashMap<String, String> headers = new HashMap<>();
+    int dataLen;
 
     public MessageDecoder(byte[] data) {
-        rawMessage = data;
+        this.rawMessage = data;
 
-        String mess = new String(Arrays.copyOfRange(rawMessage, 0, 3));
-        type = MessageType.parseType(mess);
+        String messType = new String(Arrays.copyOfRange(rawMessage, 0, 3));
+        this.type = MessageType.parseType(messType);
 
-        rawData = Arrays.copyOfRange(rawMessage,3, rawMessage.length);
-        if (!ArrayUtils.isEmpty(rawData)) haveData=true;
+        String dataLenHex = new String(Arrays.copyOfRange(rawMessage, 3, 7));
+        dataLen = (int) Long.parseLong(dataLenHex, 16);
 
-        if (type != MessageType.MESSAGE.BIN && !ArrayUtils.isEmpty(rawData)){
+        rawData = Arrays.copyOfRange(rawMessage,7, rawMessage.length);
+        if (dataLen >0) haveData=true;
+
+        if (type != MessageType.MESSAGE.BIN && dataLen>0){
             try {
-                decodedData = new String(Base64.getDecoder().decode(data)).trim();
+                String trimmedData = new String(rawData).trim();
+                decodedData = new String(Base64.getDecoder().decode(trimmedData.getBytes())).trim();
                 String[] parts = decodedData.split("\n");
                 for (String part: parts){
                     String[] splitted = part.split(":");
@@ -47,6 +52,22 @@ public class MessageDecoder {
         }
     }
 
+    public static boolean isComplete (byte[] raw){
+        if (raw.length < 7) return false;
+        byte[] dataLength = Arrays.copyOfRange(raw, 3 , 7);
+        int len = (int)Long.parseLong(new String(dataLength), 16);
+        return raw.length - 7 == len;
+    }
+
+    public static int getDataLength (byte[] raw){
+        byte[] dataLength = Arrays.copyOfRange(raw, 3 , 7);
+        return (int)Long.parseLong(new String(dataLength), 16);
+    }
+
+    public int getDataLength(){
+        return dataLen;
+    }
+
     public MessageType.MESSAGE getType() {
         return type;
     }
@@ -57,6 +78,10 @@ public class MessageDecoder {
 
     public String getDecodedData() {
         return decodedData;
+    }
+
+    public byte[] getRawMessage() {
+        return rawMessage;
     }
 
     public boolean isHaveData() {

@@ -10,13 +10,15 @@ import java.util.HashMap;
 
 public class MessageBuilder {
 
-    private static final Logger logger = LogManager.getLogger("Socket");
+    private static final Logger logger = LogManager.getLogger("BUILDER");
 
     MessageType.MESSAGE type;
-    HashMap<String, String> header;
+    HashMap<String, String> header = new HashMap<>();
     boolean haveHeader = false;
     boolean haveRaw = false;
     byte[] rawBytes;
+    private boolean isPretty = false;
+
     public MessageBuilder addType(MessageType.MESSAGE messageType){
         this.type = messageType;
         return this;
@@ -33,6 +35,11 @@ public class MessageBuilder {
         return this;
     }
 
+    public MessageBuilder pretty(){
+        this.isPretty = true;
+        return this;
+    }
+
     public byte[] build(){
         ByteArrayOutputStream message = new ByteArrayOutputStream();
         try{
@@ -42,12 +49,30 @@ public class MessageBuilder {
                 for (String key: header.keySet()){
                     headerString.append(key).append(":").append(header.get(key)).append("\n");
                 }
-                message.write(Base64.getEncoder().encode(headerString.toString().getBytes()));
+                byte[] base64Header = Base64.getEncoder().encode(headerString.toString().getBytes());
+                String hexLength = Integer.toHexString(base64Header.length);
+                StringBuilder dataLength = new StringBuilder();
+                for (int i=0;i<4-hexLength.length();i++){
+                    dataLength.append("0");
+                }
+                dataLength.append(hexLength);
+                message.write(dataLength.toString().getBytes());
+                message.write(base64Header);
             }
-
-            if (this.type == MessageType.MESSAGE.BIN && this.haveRaw){
+            else if (this.type == MessageType.MESSAGE.BIN && this.haveRaw){
+                String hexLength = Integer.toHexString(rawBytes.length);
+                StringBuilder dataLength = new StringBuilder();
+                for (int i=0;i<4-hexLength.length();i++){
+                    dataLength.append("0");
+                }
+                dataLength.append(hexLength);
+                message.write(dataLength.toString().getBytes());
                 message.write(rawBytes);
             }
+            else{
+                message.write("0000".getBytes());
+            }
+            if (this.isPretty) message.write("\n\r".getBytes());
         }
         catch (IOException ioe){
             logger.error(ioe);

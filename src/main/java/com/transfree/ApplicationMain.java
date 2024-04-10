@@ -1,5 +1,6 @@
 package com.transfree;
 
+import com.transfree.client.Client;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
@@ -62,6 +63,11 @@ public class ApplicationMain extends Application{
         Server sv = new Server(8000);
         Thread serverThread = new Thread(sv);
         serverThread.start();
+        Client client = new Client();
+        client.connect("localhost", 8000);
+        client.handshake();
+        client.sendFile("D:\\test.jpg");
+        client.close();
         launch();
     }
 }
