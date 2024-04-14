@@ -2,9 +2,7 @@ package com.transfree.utils;
 
 public class MessageType {
     public enum MESSAGE {
-        INT, //INIT
         ACK, //ACKNOWLEDGE
-        INF, //INFO
         ATH, //AUTH
         REQ, //REQUEST
         EOF, //END OF FILE
@@ -13,12 +11,12 @@ public class MessageType {
         BIN, //BINARY DATA
         NSM, //NO SUCH MESSAGE
         RFS, //REFUSE
+        COM, //COMPLETE
     }
 
     public static MESSAGE parseType(String message) {
         if (message.equalsIgnoreCase("ACK")) return MESSAGE.ACK;
-        else if (message.equalsIgnoreCase("INT")) return MESSAGE.INT;
-        else if (message.equalsIgnoreCase("INF")) return MESSAGE.INF;
+        else if (message.equalsIgnoreCase("COM")) return MESSAGE.COM;
         else if (message.equalsIgnoreCase("REQ")) return MESSAGE.REQ;
         else if (message.equalsIgnoreCase("EOF")) return MESSAGE.EOF;
         else if (message.equalsIgnoreCase("END")) return MESSAGE.END;
@@ -32,8 +30,7 @@ public class MessageType {
     public static String toString(MESSAGE message) {
         return switch (message) {
             case ACK -> "ACK";
-            case INT -> "INT";
-            case INF -> "INF";
+            case COM -> "COM";
             case REQ -> "REQ";
             case EOF -> "EOF";
             case END -> "END";

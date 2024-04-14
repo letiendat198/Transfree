@@ -69,40 +69,49 @@ public class Client {
         }
     }
 
-    public void sendFile(String path) {
-        if (this.inStream != null && this.outStream != null) {
-            try {
-                String fileName = new File(path).getName();
-                long size = new File(path).length();
-                outStream.write(new MessageBuilder().addType(MESSAGE.BGN)
-                        .addHeader("sessionID", this.sessionID)
-                        .addHeader("fileName", fileName)
-                        .addHeader("size", Long.toString(size))
-                        .build());
-                MessageDecoder mess = SocketRead.readSocket(inStream);
-                logger.debug("{}", new String(mess.getRawMessage()));
-                if (mess != null && mess.getType() == MESSAGE.ACK) {
-                    FileInputStream fileStream = new FileInputStream(path);
-                    long sent = 0;
-                    while (sent < size) {
-                        byte[] buf = new byte[MAX_PAYLOAD_SIZE - 7];
-                        int len = fileStream.read(buf);
-                        if (len > 0) {
-                            byte[] message = new MessageBuilder().addType(MESSAGE.BIN).addRawBytes(Arrays.copyOfRange(buf, 0, len)).build();
-                            outStream.write(message);
-                            sent += len;
-                        } else {
-                            outStream.write(new MessageBuilder().addType(MESSAGE.EOF).build());
-                            break;
-                        }
-                    }
-                    fileStream.close();
-                }
-
-            } catch (Exception e) {
-                logger.error(e);
-            }
+    public boolean sendFile(String path) {
+        if (this.inStream == null || this.outStream == null) {
+            return false;
         }
+        try {
+            String fileName = new File(path).getName();
+            long size = new File(path).length();
+            outStream.write(new MessageBuilder().addType(MESSAGE.BGN)
+                    .addHeader("sessionID", this.sessionID)
+                    .addHeader("fileName", fileName)
+                    .addHeader("size", Long.toString(size))
+                    .build());
+            MessageDecoder mess = SocketRead.readSocket(inStream);
+            logger.debug("{}", new String(mess.getRawMessage()));
+            if (mess != null && mess.getType() == MESSAGE.ACK) {
+                FileInputStream fileStream = new FileInputStream(path);
+                long sent = 0;
+                while (true) {  //Read until EOF is sent => Guarantee server will stop
+                    byte[] buf = new byte[MAX_PAYLOAD_SIZE - 7];
+                    int len = fileStream.read(buf);
+                    if (len > 0) {
+                        byte[] message = new MessageBuilder().addType(MESSAGE.BIN).addRawBytes(Arrays.copyOfRange(buf, 0, len)).build();
+                        outStream.write(message);
+                        sent += len;
+                    } else {
+                        outStream.write(new MessageBuilder().addType(MESSAGE.EOF).build());
+                        break;
+                    }
+                }
+                // If server exit on its own => COM then RFS (in response to EOF)
+                // Else, server exit via EOF => ACK
+                MessageDecoder conf = SocketRead.readSocket(inStream);
+                if (conf == null || conf.getType() != MESSAGE.COM) return false;
+                SocketRead.readSocket(inStream); // Exhaust RFS
+                fileStream.close();
+                return true;
+            }
+
+        }
+        catch (Exception e) {
+            logger.error(e);
+        }
+        return false;
     }
 
     public void close() {

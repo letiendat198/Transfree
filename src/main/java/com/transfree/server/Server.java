@@ -57,7 +57,7 @@ public class Server implements Runnable {
                     boolean terminated = false;
 
                     MessageDecoder mess = SocketRead.readSocket(inStream);
-                    logger.debug("{}", new String(mess.getRawMessage()));
+//                    logger.debug("{}", new String(mess.getRawMessage()));
                     switch (mess.getType()) {
                         case ACK:
                             logger.info("ACK request received");
@@ -110,11 +110,16 @@ public class Server implements Runnable {
                                 logger.debug("Written: {}. Expected: {}", written, size);
                             }
                             logger.info("Done writing to file, written {}", written);
+                            outStream.write(new MessageBuilder().addType(MESSAGE.COM).build());
                             fileOut.close();
                             break;
                         case BIN:
                             outStream.write(new MessageBuilder().addType(MESSAGE.RFS).build());
                             logger.info("BIN request outside of file transfer mode");
+                            break;
+                        case EOF:
+                            outStream.write(new MessageBuilder().addType(MESSAGE.RFS).build());
+                            logger.info("EOF request outside of file transfer mode");
                             break;
                         case END:
                             logger.info("END request received");
@@ -125,6 +130,7 @@ public class Server implements Runnable {
                                 len = inStream.read();
                             }
                             terminated = true;
+                            logger.info("Closing socket");
                             break;
                         default:
                             outStream.write(new MessageBuilder().addType(MESSAGE.NSM).build());
