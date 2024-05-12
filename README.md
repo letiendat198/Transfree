@@ -1,4 +1,4 @@
-# Transfree
+# Transfree (WIP)
 File transfer over LAN for Windows and Android
 
 ## Features
@@ -61,15 +61,28 @@ larger than `[LENGTH]` (Will happen if data is inputted from netcat because of \
 <details>
   <summary>Done</summary>
 
+Java:
 - ~~Backend~~
 - ~~UI for send view~~
+- ~~Implement UI for receiving~~
+
+Android:
+- ~~Adapt Java to Android~~
+- ~~Implement devices discovery~~
+
 </details>
 
-- Implement UI for receiving
+Java:
 - Implement devices discovery
-- Implement UI for devices discovery
+- Implement UI for devices discovery 
+
+Android:
+- Make sure of UI-Logic seperation (Consider implement MVVM)
+
+Common:
 - Make UI better
 - Move to TLS/SSL
+
 
 ## Issue Tracker
 
