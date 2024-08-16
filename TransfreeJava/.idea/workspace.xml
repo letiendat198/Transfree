@@ -5,34 +5,124 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bced5953-efe0-4729-a9c9-e84f8706c1ea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/SendActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/SendActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/server/ServerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/server/ServerService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/service_discovery/ServiceDiscovery.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/service_discovery/ServiceDiscovery.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/ui/BoxComponents.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ApplicationMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ApplicationMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/socketio/SocketRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/utils/SocketRead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/DeviceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/views/DeviceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/FileReceiveBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/components/FileReceiveBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/FileSendBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/components/FileSendBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/ReceiveView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/views/ReceiveView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/RequestPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/RequestPopup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/SendView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/views/SendView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/TargetBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/components/TargetBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/MessageBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/message/MessageBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/MessageDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/message/MessageDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/message/MessageType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/SVGIcons.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.idea/deploymentTargetSelector.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.idea/migrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/androidTest/java/com/transfree/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/ReceiveActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/SendActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/broadcast_receiver/CallbackBroadcastReceiver.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/broadcast_receiver/StopServerBroadcastReceiver.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/client/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/client/ClientThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/file_io/FileHelper.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/file_io/RequestFolderPermission.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/notification/ConfirmNotification.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/notification/CreateChannels.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/notification/PersistenceNotification.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/notification/ProgressNotification.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/notification/RequestNotificationPermission.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/server/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/server/ServerService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/service_discovery/ServiceDiscovery.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/ui/components/DeviceBoxComponent.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/ui/components/FileBoxComponent.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/ui/theme/Color.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/ui/theme/Theme.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/ui/theme/Type.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/utils/CommonValues.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/utils/FileStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/utils/MessageBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/utils/MessageDecoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/utils/MessageType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/utils/Settings.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/utils/SocketRead.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-anydpi/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/test/java/com/transfree/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/gradle/libs.versions.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/markdown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ApplicationMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/client/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/client/ClientThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/message/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/message/MessageBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/message/MessageDecoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/message/MessageType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/server/RequestDispatcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/server/RequestHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/server/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/server/ServerGUIInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/server/TransfreeProtocol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/service_discovery/ServiceDiscovery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/RequestPopup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/components/FileReceiveBox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/components/FileSendBox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/components/TargetBox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/views/DeviceView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/views/ReceiveView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/views/SendView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/CommonValues.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/FileStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/SocketRead.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MainView.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/android.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/document.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/linux.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/mac.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/windows.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +173,7 @@
     "git-widget-placeholder": "dev",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Projects/Transfree/TransfreeJava",
+    "last_opened_file_path": "D:/Projects/Transfree",
     "settings.editor.selected.configurable": "reference.settings.project.maven.runner"
   }
 }]]></component>
