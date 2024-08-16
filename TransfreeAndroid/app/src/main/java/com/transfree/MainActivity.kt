@@ -32,14 +32,12 @@ import com.transfree.file_io.RequestFolderPermission
 import com.transfree.notification.RequestNotificationPermission
 import com.transfree.server.ServerService
 import com.transfree.service_discovery.ServiceDiscovery
-import com.transfree.ui.DeviceBoxComponent
+import com.transfree.ui.components.DeviceBoxComponent
 import com.transfree.ui.theme.TransfreeTheme
 
 class MainActivity : ComponentActivity() {
     private var TAG: String = "MAIN_ACTIVITY"
     private val deviceBoxList = mutableStateListOf<DeviceBoxComponent>()
-
-    private var serviceDiscovery: ServiceDiscovery? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,12 +48,9 @@ class MainActivity : ComponentActivity() {
 
         RequestFolderPermission(this).requestSaveFolder()
 
-        serviceDiscovery = ServiceDiscovery(this){name, port, host ->
-            Log.d(TAG, "A new device found!")
-            deviceBoxList.add(DeviceBoxComponent(this, name, port, host))
+        ServerService.deviceLiveData.observe(this){ map ->
+            deviceBoxList.add(DeviceBoxComponent(this@MainActivity, map["name"]!!, map["port"]!!.toInt(), map["host"]!!))
         }
-        serviceDiscovery!!.registerService(1908)
-        serviceDiscovery!!.discoverService()
 
         setContent {
             TransfreeTheme {
@@ -69,6 +64,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
     @Composable
     fun MainView(){
         val deviceBoxListSnapshot = remember { deviceBoxList }

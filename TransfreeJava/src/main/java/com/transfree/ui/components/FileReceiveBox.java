@@ -1,4 +1,4 @@
-package com.transfree.ui;
+package com.transfree.ui.components;
 
 import javafx.geometry.HPos;
 import javafx.scene.control.Label;
@@ -6,8 +6,6 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-
-import java.io.File;
 
 public class FileReceiveBox extends GridPane {
     private ProgressBar progressBar = new ProgressBar();

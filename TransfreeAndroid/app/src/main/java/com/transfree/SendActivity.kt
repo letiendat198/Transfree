@@ -39,7 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.transfree.client.ClientThread
-import com.transfree.ui.FileBoxComponent
+import com.transfree.ui.components.FileBoxComponent
 import com.transfree.ui.theme.TransfreeTheme
 import com.transfree.utils.FileStatus.STATUS
 

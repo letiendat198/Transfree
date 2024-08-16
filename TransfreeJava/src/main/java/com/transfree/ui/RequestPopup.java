@@ -13,13 +13,14 @@ import java.util.function.Consumer;
 
 public class RequestPopup extends Stage {
     Consumer<Boolean> callback;
-    public RequestPopup(String name, Consumer<Boolean> callback){
+    String deviceName;
+    public RequestPopup(Consumer<Boolean> callback){
         this.callback = callback;
 
         this.setTitle("File transfer request");
 
         VBox view = new VBox();
-        Label l = new Label(name + " is requesting permission to transfer file to this device");
+        Label l = new Label(deviceName + " is requesting permission to transfer file to this device");
         HBox buttonRow = new HBox();
         Button acceptButton = new Button("Accept");
         acceptButton.setOnAction(this::onAccept);
@@ -33,9 +34,8 @@ public class RequestPopup extends Stage {
         view.getChildren().add(buttonRow);
         view.setAlignment(Pos.TOP_CENTER);
 
-            Scene scene = new Scene(view, 450, 65);
+        Scene scene = new Scene(view, 450, 65);
         this.setScene(scene);
-        this.show();
     }
 
     private void onAccept(ActionEvent event){
@@ -46,5 +46,10 @@ public class RequestPopup extends Stage {
     private void onRefuse(ActionEvent event){
         this.callback.accept(false);
         this.close();
+    }
+
+    public void show(String deviceName){
+        this.deviceName = deviceName;
+        this.show();
     }
 }

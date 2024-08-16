@@ -5,8 +5,8 @@ import android.net.nsd.NsdManager
 import android.net.nsd.NsdServiceInfo
 import android.util.Log
 import android.widget.Toast
-import java.lang.Error
 import java.net.InetAddress
+
 
 class ServiceDiscovery(private val context: Context, private val callback: (String, Int, InetAddress) -> Unit)  {
     private val TAG = "DISCOVERY"
@@ -78,32 +78,30 @@ class ServiceDiscovery(private val context: Context, private val callback: (Stri
                 if (service.serviceName == name) {
                     Log.d(TAG, "Same Machine, IGNORE")
                 }
-                nsdManager.resolveService(service, resolveListener)
+                nsdManager.resolveService(service, object: NsdManager.ResolveListener {
+                    override fun onResolveFailed(serviceInfo: NsdServiceInfo?, errorCode: Int) {
+                        Log.e(TAG, "Service Resolve Failed. Error code: $errorCode")
+                    }
+
+                    override fun onServiceResolved(serviceInfo: NsdServiceInfo?) {
+                        Log.d(TAG, "Resolve Success: $serviceInfo")
+
+                        if (serviceInfo?.serviceName == name){
+                            Log.d(TAG, "Same machine. RETURNING")
+//                return
+                        }
+                        if (serviceInfo == null) return
+                        val port: Int = serviceInfo.port
+                        val host: InetAddress = serviceInfo.host
+                        val name: String = serviceInfo.serviceName
+                        callback(name, port, host)
+                    }
+                })
             }
 
             override fun onServiceLost(service: NsdServiceInfo?) {
                 Log.d(TAG, "Service Lost: $service")
             }
-    }
-
-    private val resolveListener = object: NsdManager.ResolveListener{
-        override fun onResolveFailed(serviceInfo: NsdServiceInfo?, errorCode: Int) {
-            Log.e(TAG, "Service Resolve Failed. Error code: $errorCode")
-        }
-
-        override fun onServiceResolved(serviceInfo: NsdServiceInfo?) {
-            Log.d(TAG, "Resolve Success: $serviceInfo")
-
-            if (serviceInfo?.serviceName == name){
-                Log.d(TAG, "Same machine. RETURNING")
-//                return
-            }
-            if (serviceInfo == null) return
-            val port: Int = serviceInfo.port
-            val host: InetAddress = serviceInfo.host
-            val name: String = serviceInfo.serviceName
-            callback(name, port, host)
-        }
     }
 
     fun discoverService(){

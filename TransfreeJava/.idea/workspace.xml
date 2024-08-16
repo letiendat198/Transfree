@@ -5,17 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bced5953-efe0-4729-a9c9-e84f8706c1ea" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/SendActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/SendActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/server/ServerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/server/ServerService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/service_discovery/ServiceDiscovery.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/service_discovery/ServiceDiscovery.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TransfreeAndroid/app/src/main/java/com/transfree/ui/BoxComponents.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ApplicationMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ApplicationMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/client/ClientThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/client/ClientThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/socketio/SocketRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/socketio/SocketRead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/FileBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/FileSendBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/SendView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/SendView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/TargetBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/TargetBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/CommonValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/utils/CommonValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/socketio/SocketRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/utils/SocketRead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/DeviceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/views/DeviceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/FileReceiveBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/components/FileReceiveBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/FileSendBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/components/FileSendBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/ReceiveView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/views/ReceiveView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/RequestPopup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/RequestPopup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/SendView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/views/SendView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/ui/TargetBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/ui/components/TargetBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/MessageBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/message/MessageBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/MessageDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/message/MessageDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/MessageType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/transfree/message/MessageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/transfree/utils/SVGIcons.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MainView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,17 +43,18 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenRunner">
-    <option name="delegateBuildToMaven" value="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -51,17 +69,22 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Transfree.executor": "Run",
+    "Attach to process.localhost:5005.executor": "ProcessAttachDebug",
+    "Attach to process.localhost:54706.executor": "ProcessAttachDebug",
     "JAR Application.Transfree-1.0-SNAPSHOT.jar.executor": "Run",
     "Maven.Transfree [clean].executor": "Run",
     "Maven.Transfree [install,--non-recursive].executor": "Run",
     "Maven.Transfree.executor": "Debug",
+    "Remote JVM Debug.Transfree Multi-Process Debug.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "dev",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.archetype.catalogs"
+    "last_opened_file_path": "D:/Projects/Transfree/TransfreeJava",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner"
   }
 }]]></component>
   <component name="RunAnythingCache">
@@ -72,7 +95,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JAR Application.Transfree-1.0-SNAPSHOT.jar">
+  <component name="RunManager" selected="Application.Transfree">
     <configuration name="Transfree" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.transfree.Main" />
       <module name="Transfree" />
@@ -84,9 +107,24 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/Transfree-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
+    <configuration name="Transfree Multi-Process Debug" type="Remote">
+      <module name="Transfree" />
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="5005" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Transfree" />
       <item itemvalue="JAR Application.Transfree-1.0-SNAPSHOT.jar" />
+      <item itemvalue="Remote JVM Debug.Transfree Multi-Process Debug" />
     </list>
     <recent_temporary>
       <list>
@@ -115,5 +153,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
   </component>
 </project>

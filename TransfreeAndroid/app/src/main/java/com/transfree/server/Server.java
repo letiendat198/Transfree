@@ -207,4 +207,8 @@ public class Server implements Runnable {
         this.isAccepted = isAccepted;
         this.isConfirmed = true;
     }
+
+    public ServerSocket getServerSocket(){
+        return server;
+    }
 }

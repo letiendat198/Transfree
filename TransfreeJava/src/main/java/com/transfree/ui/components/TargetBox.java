@@ -1,17 +1,17 @@
-package com.transfree.ui;
+package com.transfree.ui.components;
 
-import com.transfree.utils.SVGIcons;
+import com.transfree.ui.views.SendView;
 import javafx.geometry.HPos;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
-import javafx.scene.shape.SVGPath;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Objects;
-import java.util.function.Function;
+import java.io.InputStream;
 
 public class TargetBox extends GridPane {
     private static final Logger logger = LogManager.getLogger("TARGETBOX");
@@ -20,11 +20,13 @@ public class TargetBox extends GridPane {
     String targetOS;
     String targetIP;
     String targetMAC;
+    int targetPort;
     SendView sendView;
-    public TargetBox(String name, String os, String ip){
+    public TargetBox(String name, String os, String ip, int port){
         this.targetName = name;
         this.targetOS = os;
         this.targetIP = ip;
+        this.targetPort = port;
         this.targetMAC = "50:50:50:50";
 
         for (int i=0; i<2; i++){
@@ -37,13 +39,15 @@ public class TargetBox extends GridPane {
             this.getColumnConstraints().add(cc);
         }
 
-//        if (os.equals("Windows")){
-//            SVGPath windowsIcon = SVGIcons.getWindowsIcon();
-//            windowsIcon.setScaleX(1);
-//            windowsIcon.setScaleY(1);
-//            this.add(windowsIcon,0,0, 1, 3);
-//        }
-
+        if (os.equals("Windows")){
+            InputStream imageStream = getClass().getResourceAsStream("/icons/windows.png");
+            Image image = new Image(imageStream);
+            ImageView imageView = new ImageView(image);
+            imageView.setFitHeight(50);
+            imageView.setFitWidth(50);
+            imageView.setPreserveRatio(true);
+            this.add(imageView,0,0, 1, 3);
+        }
 
         Label deviceLabel = new Label("Device name: " + this.targetName);
         this.add(deviceLabel, 1,0);
@@ -63,6 +67,6 @@ public class TargetBox extends GridPane {
 
     private void onClick(MouseEvent event){
         logger.debug("Target box clicked with IP: {}", this.targetIP);
-        this.sendView.populate(this.targetIP);
+        this.sendView.populate(this.targetIP, this.targetPort);
     }
 }

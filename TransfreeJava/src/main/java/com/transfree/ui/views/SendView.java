@@ -1,13 +1,17 @@
-package com.transfree.ui;
+package com.transfree.ui.views;
 
 import com.transfree.client.ClientThread;
+import com.transfree.ui.components.FileSendBox;
 import com.transfree.utils.FileStatus.STATUS;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -24,6 +28,7 @@ public class SendView extends VBox {
     private static final Logger logger = LogManager.getLogger("SENDVIEW");
 
     String targetIP;
+    int targetPort;
     Label defaultLabel;
     List<FileSendBox> fileBoxList = new ArrayList<>();
     List<File> fileList = new ArrayList<>();
@@ -32,13 +37,16 @@ public class SendView extends VBox {
         this.getChildren().add(defaultLabel);
     }
 
-    public void populate(String targetIP){
+    public void populate(String targetIP, int targetPort){
         this.targetIP = targetIP;
+        this.targetPort = targetPort;
         this.getChildren().clear();
         this.fileBoxList.clear();
         this.fileList.clear();
 
         HBox buttonRow = new HBox();
+        buttonRow.setAlignment(Pos.CENTER);
+        buttonRow.setSpacing(2);
 
         Button fileChooseButton = new Button("Choose a file");
         fileChooseButton.setOnAction(this::onFileChooseButton);
@@ -46,8 +54,7 @@ public class SendView extends VBox {
         Button sendButton = new Button("Send");
         sendButton.setOnAction(this::onSendButton);
 
-        buttonRow.getChildren().add(fileChooseButton);
-        buttonRow.getChildren().add(sendButton);
+        buttonRow.getChildren().addAll(fileChooseButton, sendButton);
         this.getChildren().add(buttonRow);
     }
 
@@ -69,7 +76,7 @@ public class SendView extends VBox {
 
     private void onSendButton(ActionEvent event){
         logger.debug("Send button clicked!");
-        ClientThread clientThread = new ClientThread(this.targetIP, 8000);
+        ClientThread clientThread = new ClientThread(this.targetIP, this.targetPort);
         clientThread.addFiles(this.fileList);
         clientThread.addCallback(this::onFileUpdate);
         Thread sendThread = new Thread(clientThread);

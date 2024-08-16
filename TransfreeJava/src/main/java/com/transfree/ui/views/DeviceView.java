@@ -1,10 +1,10 @@
-package com.transfree.ui;
+package com.transfree.ui.views;
 
+import com.transfree.ui.components.TargetBox;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 
 public class DeviceView extends VBox {
@@ -15,8 +15,8 @@ public class DeviceView extends VBox {
         this.sendView = sendInstance;
     }
 
-    public void addTarget(){
-        TargetBox target = new TargetBox("T Dat", "Windows", "localhost");
+    public void addTarget(String name, String os, String ip, int port){
+        TargetBox target = new TargetBox(name, os, ip, port);
         target.addSendControl(this.sendView);
         targetList.add(target);
         this.getChildren().add(target);

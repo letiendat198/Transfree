@@ -1,4 +1,4 @@
-package com.transfree.utils;
+package com.transfree.message;
 
 public class MessageType {
     public enum MESSAGE {

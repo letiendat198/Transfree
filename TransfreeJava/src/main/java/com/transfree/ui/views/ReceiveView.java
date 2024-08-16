@@ -1,8 +1,8 @@
-package com.transfree.ui;
+package com.transfree.ui.views;
 
+import com.transfree.ui.components.FileReceiveBox;
 import javafx.scene.layout.VBox;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,27 +1,22 @@
 package com.transfree.client;
 
-import com.transfree.socketio.SocketRead;
+import com.transfree.message.Message;
+import com.transfree.utils.SocketRead;
 import com.transfree.utils.CommonValues;
-import com.transfree.utils.MessageBuilder;
-import com.transfree.utils.MessageDecoder;
-import com.transfree.utils.MessageType;
-import com.transfree.utils.MessageType.MESSAGE;
+import com.transfree.message.MessageBuilder;
+import com.transfree.message.MessageType.MESSAGE;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.accessibility.AccessibleKeyBinding;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.lang.reflect.Array;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
-import java.net.NetworkInterface;
 import java.net.Socket;
 import java.util.Arrays;
 
-import static java.lang.Math.log;
 import static java.lang.Math.min;
 import static java.lang.Thread.sleep;
 
@@ -58,9 +53,10 @@ public class Client {
         if (this.inStream != null && this.outStream != null) {
             try {
                 outStream.write(new MessageBuilder().addType(MESSAGE.REQ).addHeader("name", this.deviceName).build());
-                MessageDecoder mess = SocketRead.readSocket(inStream);
-                if (mess != null && mess.getType() == MESSAGE.ATH) {
-                    this.sessionID = mess.getHeader("sessionID");
+                Message mess = SocketRead.readMessage(inStream);
+                if (mess != null && mess.getMessageType() == MESSAGE.ATH) {
+                    this.sessionID = mess.getMessageHeader().get("sessionID");
+                    logger.info("Received sessionID: {}", this.sessionID);
                 }
 
             } catch (Exception e) {
@@ -81,9 +77,9 @@ public class Client {
                     .addHeader("fileName", fileName)
                     .addHeader("size", Long.toString(size))
                     .build());
-            MessageDecoder mess = SocketRead.readSocket(inStream);
-            logger.debug("{}", new String(mess.getRawMessage()));
-            if (mess != null && mess.getType() == MESSAGE.ACK) {
+            Message mess = SocketRead.readMessage(inStream);
+            logger.debug("Type: {} - Length: {} - Data: {}", mess.getMessageType(), mess.getMessageLength(), mess.getRawData());
+            if (mess != null && mess.getMessageType() == MESSAGE.ACK) {
                 FileInputStream fileStream = new FileInputStream(path);
                 long sent = 0;
                 while (true) {  //Read until EOF is sent => Guarantee server will stop
@@ -100,9 +96,9 @@ public class Client {
                 }
                 // If server exit on its own => COM then RFS (in response to EOF)
                 // Else, server exit via EOF => ACK
-                MessageDecoder conf = SocketRead.readSocket(inStream);
-                if (conf == null || conf.getType() != MESSAGE.COM) return false;
-                SocketRead.readSocket(inStream); // Exhaust RFS
+                Message conf = SocketRead.readMessage(inStream);
+                if (conf == null || conf.getMessageType() != MESSAGE.COM) return false;
+                SocketRead.readMessage(inStream); // Exhaust RFS
                 fileStream.close();
                 return true;
             }
@@ -118,8 +114,8 @@ public class Client {
         try {
             if (this.outStream != null) {
                 this.outStream.write(new MessageBuilder().addType(MESSAGE.END).build());
-                MessageDecoder mess = SocketRead.readSocket(inStream);
-                if (mess.getType()==MESSAGE.ACK){
+                Message mess = SocketRead.readMessage(inStream);
+                if (mess.getMessageType()==MESSAGE.ACK){
                     socket.close();
                 }
             }

@@ -1,11 +1,15 @@
-package com.transfree.ui;
+package com.transfree.ui.components;
 
 import javafx.geometry.HPos;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 
 import java.io.File;
+import java.io.InputStream;
+import java.util.Arrays;
 
 public class FileSendBox extends GridPane {
     public File file;
@@ -30,9 +34,20 @@ public class FileSendBox extends GridPane {
             cc.setHalignment(HPos.LEFT);
             this.getColumnConstraints().add(cc);
         }
+        String[] imageExt = {"jpg", "jpeg", "png", "gif", "svg", "bmf", "raw"};
 
-        Label osLabel = new Label(fileExt);
-        this.add(osLabel,0,0, 1, 3);
+        String imagePath = "/icons/document.png";
+        if (Arrays.asList(imageExt).contains(fileExt)){
+            imagePath = "/icons/image.png";
+        }
+
+        InputStream imageStream = getClass().getResourceAsStream(imagePath);
+        Image image = new Image(imageStream);
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(30);
+        imageView.setFitWidth(30);
+        imageView.setPreserveRatio(true);
+        this.add(imageView,0,0, 1, 3);
 
         Label deviceLabel = new Label("File name: " + fileName);
         this.add(deviceLabel, 1,0);
