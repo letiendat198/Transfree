@@ -1,7 +1,7 @@
-package com.transfree.ui.views;
+package com.transfree.views.deprecated;
 
 import com.transfree.client.ClientThread;
-import com.transfree.ui.components.FileSendBox;
+import com.transfree.views.components.FileSendBox;
 import com.transfree.utils.FileStatus.STATUS;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -10,8 +10,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -23,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
+@Deprecated
 public class SendView extends VBox {
     private static final Logger logger = LogManager.getLogger("SENDVIEW");
 

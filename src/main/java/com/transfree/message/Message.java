@@ -21,7 +21,7 @@ public class Message {
     boolean haveData = false;
     boolean haveHeaders = false;
     HashMap<String, String> messageHeader = new HashMap<>();
-    int messageLength;
+    int messageLength; // Actually data length
 
     public static boolean isComplete (byte[] raw){
         if (raw.length < 7) return false;

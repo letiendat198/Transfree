@@ -20,7 +20,7 @@ public class ServiceDiscovery{
     public ServiceDiscovery(){
         try {
             jmDNS = JmDNS.create();
-            jmDNS.addServiceListener("_transfree._tcp.", new Listener());
+            jmDNS.addServiceListener("_transfree._tcp.local.", new Listener()); // Need .local to be found?
         }
         catch (Exception e){
             logger.error(e);
@@ -29,7 +29,7 @@ public class ServiceDiscovery{
 
     public void registerService(String name, int port){
         try {
-            ServiceInfo serviceInfo = ServiceInfo.create("_transfree._tcp.", name, port, "");
+            ServiceInfo serviceInfo = ServiceInfo.create("_transfree._tcp.local.", name, port, "");
             jmDNS.registerService(serviceInfo);
         }
         catch (Exception e){

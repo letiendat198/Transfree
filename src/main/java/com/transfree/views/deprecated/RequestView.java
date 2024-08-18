@@ -1,26 +1,22 @@
-package com.transfree.ui;
+package com.transfree.views.deprecated;
 
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.util.function.Consumer;
 
-public class RequestPopup extends Stage {
+@Deprecated
+public class RequestView extends VBox {
     Consumer<Boolean> callback;
-    String deviceName;
-    public RequestPopup(Consumer<Boolean> callback){
+    Label label = new Label();
+    public RequestView(Consumer<Boolean> callback){
         this.callback = callback;
 
-        this.setTitle("File transfer request");
-
-        VBox view = new VBox();
-        Label l = new Label(deviceName + " is requesting permission to transfer file to this device");
+        label.setText("A device is requesting permission to transfer file to this device");
         HBox buttonRow = new HBox();
         Button acceptButton = new Button("Accept");
         acceptButton.setOnAction(this::onAccept);
@@ -30,26 +26,20 @@ public class RequestPopup extends Stage {
         buttonRow.getChildren().add(acceptButton);
         buttonRow.getChildren().add(refuseButton);
         buttonRow.setAlignment(Pos.CENTER);
-        view.getChildren().add(l);
-        view.getChildren().add(buttonRow);
-        view.setAlignment(Pos.TOP_CENTER);
-
-        Scene scene = new Scene(view, 450, 65);
-        this.setScene(scene);
+        this.getChildren().add(label);
+        this.getChildren().add(buttonRow);
+        this.setAlignment(Pos.TOP_CENTER);
     }
 
     private void onAccept(ActionEvent event){
         this.callback.accept(true);
-        this.close();
     }
 
     private void onRefuse(ActionEvent event){
         this.callback.accept(false);
-        this.close();
     }
 
-    public void show(String deviceName){
-        this.deviceName = deviceName;
-        this.show();
+    public void updateLabel(String deviceName){
+        this.label.setText(deviceName + " is requesting permission to transfer file to this device");
     }
 }

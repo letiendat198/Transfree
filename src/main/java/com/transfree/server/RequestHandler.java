@@ -1,5 +1,6 @@
 package com.transfree.server;
 
+import com.transfree.gui_interface.ServerGUIInterface;
 import com.transfree.message.Message;
 import com.transfree.message.MessageBuilder;
 import com.transfree.message.MessageType;

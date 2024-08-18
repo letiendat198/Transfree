@@ -1,0 +1,8 @@
+.label {
+    -fx-alignment: center ;
+}
+
+
+.bold {
+    -fx-font-weight: bold;
+}

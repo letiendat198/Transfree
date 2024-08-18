@@ -1,11 +1,12 @@
-package com.transfree.ui.views;
+package com.transfree.views.deprecated;
 
-import com.transfree.ui.components.FileReceiveBox;
+import com.transfree.views.components.FileReceiveBox;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Deprecated
 public class ReceiveView extends VBox {
     List<FileReceiveBox> fileReceiveBoxList = new ArrayList<>();
 

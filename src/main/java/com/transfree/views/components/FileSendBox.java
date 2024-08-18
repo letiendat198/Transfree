@@ -1,4 +1,4 @@
-package com.transfree.ui.components;
+package com.transfree.views.components;
 
 import javafx.geometry.HPos;
 import javafx.scene.control.Label;

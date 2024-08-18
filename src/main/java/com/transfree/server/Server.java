@@ -1,5 +1,6 @@
 package com.transfree.server;
 
+import com.transfree.gui_interface.ServerGUIInterface;
 import com.transfree.message.Message;
 import com.transfree.utils.SocketRead;
 import org.apache.logging.log4j.Logger;

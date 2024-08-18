@@ -1,4 +1,4 @@
-package com.transfree.server;
+package com.transfree.gui_interface;
 
 public interface ServerGUIInterface {
     public boolean requestConfirmation(String deviceName);
