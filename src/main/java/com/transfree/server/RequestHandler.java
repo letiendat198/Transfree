@@ -48,6 +48,7 @@ public class RequestHandler implements TransfreeProtocol {
         logger.info("REQ request received");
         if (!mess.isHaveHeaders()) {
             outStream.write(new MessageBuilder().addType(MessageType.MESSAGE.RFS).build());
+            outStream.flush();
             logger.info("REQ request without headers is unacceptable");
             return;
         }
@@ -56,6 +57,7 @@ public class RequestHandler implements TransfreeProtocol {
         boolean isConfirmed = guiInterface.requestConfirmation(deviceName);
         if (isConfirmed) outStream.write(new MessageBuilder().addType(MessageType.MESSAGE.ATH).addHeader("sessionID", sessionId).build());
         else outStream.write(new MessageBuilder().addType(MessageType.MESSAGE.RFS).build());
+        outStream.flush();
     }
 
     @Override
@@ -63,6 +65,7 @@ public class RequestHandler implements TransfreeProtocol {
         logger.info("BGN request received");
         if (!mess.isHaveHeaders() || mess.getMessageHeader().get("sessionID") == null || !sessionId.equals(mess.getMessageHeader().get("sessionID"))) {
             outStream.write(new MessageBuilder().addType(MessageType.MESSAGE.RFS).build());
+            outStream.flush();
             logger.debug("sessionID received: {}", mess.getMessageHeader().get("sessionID"));
             logger.info("BGN request: No header or invalid sessionID");
             return;
@@ -71,6 +74,7 @@ public class RequestHandler implements TransfreeProtocol {
         long size = Long.parseLong(mess.getMessageHeader().get("size"));
         int fileId = guiInterface.receiveFile(fileName, size);  // Add receive entry to GUI
         outStream.write(new MessageBuilder().addType(MessageType.MESSAGE.ACK).build());
+        outStream.flush();
 
         long written = 0;
         FileOutputStream fileOut = new FileOutputStream(fileName);
@@ -80,6 +84,7 @@ public class RequestHandler implements TransfreeProtocol {
 
             if (message.getMessageType() == MessageType.MESSAGE.EOF) {
                 outStream.write(new MessageBuilder().addType(MessageType.MESSAGE.ACK).build());
+                outStream.flush();
                 logger.info("EOF sent by client");
                 break;
             } else if (message.getMessageType() == MessageType.MESSAGE.BIN) {
@@ -90,6 +95,7 @@ public class RequestHandler implements TransfreeProtocol {
                 }
             } else {
                 outStream.write(new MessageBuilder().addType(MessageType.MESSAGE.RFS).build());
+                outStream.flush();
                 logger.info("{} request won't be handled in file transfer mode", message.getMessageType());
             }
             logger.debug("Written: {}. Expected: {}", written, size);
@@ -97,12 +103,14 @@ public class RequestHandler implements TransfreeProtocol {
         }
         logger.info("Done writing to file, written {}", written);
         outStream.write(new MessageBuilder().addType(MessageType.MESSAGE.COM).build());
+        outStream.flush();
         fileOut.close();
     }
 
     @Override
     public void onBinary() throws IOException {
         outStream.write(new MessageBuilder().addType(MessageType.MESSAGE.RFS).build());
+        outStream.flush();
         logger.info("BIN request outside of file transfer mode");
     }
 
@@ -115,6 +123,7 @@ public class RequestHandler implements TransfreeProtocol {
     public void onEnd() throws IOException {
         logger.info("END request received");
         outStream.write(new MessageBuilder().addType(MessageType.MESSAGE.ACK).build());
+        outStream.flush();
         int len = inStream.read();
         while (len!=-1){
             logger.info("Waiting for close on client side");
@@ -132,6 +141,7 @@ public class RequestHandler implements TransfreeProtocol {
     @Override
     public void onEOF() throws IOException {
         outStream.write(new MessageBuilder().addType(MessageType.MESSAGE.RFS).build());
+        outStream.flush();
         logger.info("EOF request outside of file transfer mode");
     }
 

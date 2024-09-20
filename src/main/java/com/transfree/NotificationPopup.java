@@ -1,7 +1,7 @@
 package com.transfree;
 
-import com.transfree.views.deprecated.ReceiveView;
-import com.transfree.views.deprecated.RequestView;
+import com.transfree.views.ReceiveView;
+import com.transfree.views.RequestView;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
@@ -17,7 +17,7 @@ public class NotificationPopup extends Stage {
     public NotificationPopup(RequestView requestView, ReceiveView receiveView){
         this.requestView = requestView;
         this.receiveView = receiveView;
-        this.scene = new Scene(requestView, 200, 80);
+        this.scene = new Scene(requestView, 300, 80);
         this.setScene(scene);
     }
 

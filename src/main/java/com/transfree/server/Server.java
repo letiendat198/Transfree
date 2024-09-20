@@ -6,9 +6,7 @@ import com.transfree.utils.SocketRead;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.UUID;
@@ -47,8 +45,8 @@ public class Server implements Runnable {
         while (true) {
             try {
                 socket = server.accept();
-                inStream = socket.getInputStream();
-                outStream = socket.getOutputStream();
+                inStream = new BufferedInputStream(socket.getInputStream(), 1024*64);
+                outStream = new BufferedOutputStream(socket.getOutputStream());
                 String sessionID = UUID.randomUUID().toString();
                 logger.debug("SessionID: {}", sessionID);
                 RequestHandler sessionHandler = new RequestHandler(inStream, outStream, sessionID, guiInterface);

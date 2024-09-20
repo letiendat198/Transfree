@@ -8,10 +8,7 @@ import com.transfree.message.MessageType.MESSAGE;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -42,8 +39,8 @@ public class Client {
         try {
             this.socket = new Socket();
             this.socket.connect(new InetSocketAddress(ip, port), 1000);
-            this.inStream = socket.getInputStream();
-            this.outStream = socket.getOutputStream();
+            this.inStream = new BufferedInputStream(socket.getInputStream());
+            this.outStream = new BufferedOutputStream(socket.getOutputStream(), 1024*64);
         } catch (Exception e) {
             logger.error(e);
         }
@@ -53,6 +50,7 @@ public class Client {
         if (this.inStream != null && this.outStream != null) {
             try {
                 outStream.write(new MessageBuilder().addType(MESSAGE.REQ).addHeader("name", this.deviceName).build());
+                outStream.flush();
                 Message mess = SocketRead.readMessage(inStream);
                 if (mess != null && mess.getMessageType() == MESSAGE.ATH) {
                     this.sessionID = mess.getMessageHeader().get("sessionID");
@@ -77,6 +75,7 @@ public class Client {
                     .addHeader("fileName", fileName)
                     .addHeader("size", Long.toString(size))
                     .build());
+            outStream.flush();
             Message mess = SocketRead.readMessage(inStream);
             logger.debug("Type: {} - Length: {} - Data: {}", mess.getMessageType(), mess.getMessageLength(), mess.getRawData());
             if (mess != null && mess.getMessageType() == MESSAGE.ACK) {
@@ -91,6 +90,7 @@ public class Client {
                         sent += len;
                     } else {
                         outStream.write(new MessageBuilder().addType(MESSAGE.EOF).build());
+                        outStream.flush();
                         break;
                     }
                 }
@@ -114,6 +114,7 @@ public class Client {
         try {
             if (this.outStream != null) {
                 this.outStream.write(new MessageBuilder().addType(MESSAGE.END).build());
+                outStream.flush();
                 Message mess = SocketRead.readMessage(inStream);
                 if (mess.getMessageType()==MESSAGE.ACK){
                     socket.close();

@@ -1,8 +1,8 @@
 package com.transfree.gui_interface;
 
 import com.transfree.NotificationPopup;
-import com.transfree.views.deprecated.ReceiveView;
-import com.transfree.views.deprecated.RequestView;
+import com.transfree.views.ReceiveView;
+import com.transfree.views.RequestView;
 import javafx.application.Platform;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

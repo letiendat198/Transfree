@@ -10,6 +10,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -29,6 +30,7 @@ public class ApplicationMain extends Application{
     private static final Logger logger = LogManager.getLogger("MAIN");
 
     Scene scene;
+    VBox view = new VBox();
 
     @Override
     public void start(Stage stage){
@@ -44,7 +46,6 @@ public class ApplicationMain extends Application{
 
         stage.setTitle("Transfree");
 
-        VBox view = new VBox();
         view.setAlignment(Pos.CENTER);
         view.setSpacing(10);
 
@@ -57,7 +58,7 @@ public class ApplicationMain extends Application{
         testDevice.setIp("127.0.0.1");
         testDevice.setName("This device");
         testDevice.setOs("Windows");
-        testDevice.setPort(12345);
+        testDevice.setPort(server.getPort());
         deviceComboBox.addDevice(testDevice);
         Button sendButton = new Button("Send");
         sendButton.setOnAction(event -> onSend(deviceComboBox.getValue()));
@@ -99,7 +100,7 @@ public class ApplicationMain extends Application{
 
     private void onSend(Device currentDevice){
         if (scene != null){
-            SendView sendView = new SendView(currentDevice);
+            SendView sendView = new SendView(currentDevice, () -> scene.setRoot(view));
             scene.setRoot(sendView);
         }
     }

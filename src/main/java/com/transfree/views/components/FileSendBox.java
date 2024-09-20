@@ -1,11 +1,14 @@
 package com.transfree.views.components;
 
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
 import java.io.File;
 import java.io.InputStream;
@@ -49,13 +52,18 @@ public class FileSendBox extends GridPane {
         imageView.setPreserveRatio(true);
         this.add(imageView,0,0, 1, 3);
 
-        Label deviceLabel = new Label("File name: " + fileName);
-        this.add(deviceLabel, 1,0);
+        Label fileLabel = new Label("File name: " + fileName);
+        GridPane.setHgrow(fileLabel, Priority.ALWAYS);
+        this.add(fileLabel, 1,0);
 
-        Label ipLabel = new Label("Size: " + (double)Math.round((double)fileSize / (1024d*1024d) * 100d) / 100d + "MB");
-        this.add(ipLabel, 1, 1);
+        Label sizeLabel = new Label("Size: " + (double)Math.round((double)fileSize / (1024d*1024d) * 100d) / 100d + "MB");
+        GridPane.setHgrow(sizeLabel, Priority.ALWAYS);
+        this.add(sizeLabel, 1, 1);
 
+        GridPane.setHgrow(this.status, Priority.ALWAYS);
         this.add(this.status, 1, 2);
+        this.setHgap(10);
+        this.setPadding(new Insets(0,0,0,10));
     }
 
     public void setStatus(String stat){
